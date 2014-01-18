@@ -16,21 +16,24 @@ To be used in Patterns and Pattern comparasons (see Pattern.py)
 
 class Position:
     
-    x, y, tol = null
+    x, y, tolerance = null
     
-	def __init__(self, int _x, int _y):
-		x=_x, y=_y, tol=0
+	def __init__( self, int _x, int _y ):
+		x = _x, y = _y, tolerance = 0
 	
-	def __init__(self, int _x, int _y, int _tol):
-	    x=_x, y=_y, tol=_tol
+	def __init__( self, int _x, int _y, int _tolerance ):
+	    x = _x, y = _y, tolerance = _tolerance
 	
-	def get_x():
+	def get_x( self ):
         return x
     
-    def get_y():
+    def get_y( self ):
         return y
     
-    def get_tol():
-        return tol
+    def get_tolerance( self ):
+        return tolerance
+    
+    def distance_to( self, Position compare_to ):
+        return math.fabs( compare_to.get_x() + compate_to.get_y() - x - y )
     
 

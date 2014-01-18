@@ -4,6 +4,9 @@ This is a first time attempt to use machine learning. The idea is to simulate a 
 
 files:
 
+README.md
+Position.py
+Pattern.py
 
 overview of players:
 
