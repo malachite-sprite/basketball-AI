@@ -9,6 +9,8 @@ and the tolerance of variance for that position.
     the position MUST be that exact position.
 -Patterns are practically immutable. They cannot be changed
     after being created.
+-The distance between two positions is measured in the Manhattan
+    metric.
 
 To be used in Patterns and Pattern comparasons (see Pattern.py)
 
@@ -16,24 +18,18 @@ To be used in Patterns and Pattern comparasons (see Pattern.py)
 
 class Position:
     
-    x, y, tolerance = null
+    x = 0
+    y = 0
+    tolerance = 0
     
-	def __init__( self, int _x, int _y ):
-		x = _x, y = _y, tolerance = 0
-	
-	def __init__( self, int _x, int _y, int _tolerance ):
-	    x = _x, y = _y, tolerance = _tolerance
-	
-	def get_x( self ):
-        return x
+    def __init__( self, _x, _y, _tolerance = 0 ):
+        self.x = _x
+        self.y = _y
+        self.tolerance = _tolerance
     
-    def get_y( self ):
-        return y
+    def distance_to( self, compare_to ):
+        return abs( compare_to.x + compare_to.y - self.x - self.y )
     
-    def get_tolerance( self ):
-        return tolerance
-    
-    def distance_to( self, Position compare_to ):
-        return math.fabs( compare_to.get_x() + compate_to.get_y() - x - y )
-    
+    def __str__( self ):
+        return "( %i, %i, %i )" % (self.x, self.y, self.tolerance)
 

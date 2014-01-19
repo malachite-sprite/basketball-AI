@@ -16,25 +16,32 @@ Patterns are comparable, as well. The algorithm for comparason runs as follows:
 
 """
 
-import Position.py
+from Position import Position
 
 class Pattern:
     
-    state=null
+    state = None
     
-	def __init__( self, Position[] _state ):
-		state = _state
-		
-	def get_state( self ):
-	    return state
-	
-	def __eq__( self, Pattern compare_to ):
-	    for position in state:
-	        closest_position, distance = null, nearest_distance = -1
-	        for compare_position in compare_to.get_state():
-	            distance = compare_position.distance_to( position )
-	            if nearest_distance = -1 or distance < nearest_distance:
-	                nearest_distance = distance, compare_position = closest_position
-	        if nearest_distance > position.get_tolerance:
-	            return false
-	    return true
+    def __init__( self, _state ):
+        self.state = _state
+    
+    def __eq__( self, compare_to ):
+        for position in self.state:
+            closest_position = 0
+            distance = 0
+            nearest_distance = -1
+            for compare_position in compare_to.state:
+                distance = compare_position.distance_to( position )
+                if nearest_distance == -1 or distance < nearest_distance:
+                    nearest_distance = distance
+                    compare_position = closest_position
+            if nearest_distance > position.tolerance:
+                return False
+        return True
+    
+    def __str__( self ):
+        toreturn = "("
+        for position in self.state:
+            toreturn = toreturn + " " + str( position )
+        return toreturn + " )"
+    
