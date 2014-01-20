@@ -10,7 +10,7 @@ from Position import Position
 
 class Team:
     
-    initial_positions = [ Position( ... ) ]
+    initial_positions = [ Position( 3, 0 ), Position( 3, 3 ), Position( 3, -3 ) ]
     
     roster = []
     memory = []
@@ -35,7 +35,16 @@ class Team:
             print "Whoops, something broke when trying to read from " + filename + "!"
             raise hell
     
-    def save( self ):
-        pass
-        #return toreturn + "\nendfile"
+    def turn( self ):
+        positions = []
+        for player in roseter:
+            positions.append( player.turn() )
+        return positions
+    
+    def save( self, filename ):
+        with open( filename, "w" ) as temp:
+            for PAR in memory:
+                line = str( PAR )
+                temp.write( line )
+            temp.write( "\nendfile" )
     
