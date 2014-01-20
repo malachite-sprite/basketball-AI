@@ -20,7 +20,7 @@ from Position import Position
 
 class Pattern:
     
-    state = None
+    state = []
     
     def __init__( self, _state ):
         self.state = _state
@@ -40,8 +40,20 @@ class Pattern:
         return True
     
     def __str__( self ):
-        toreturn = "("
+        return self.to_string()
+    
+    def to_string( self ):
+        toreturn = "[ "
         for position in self.state:
-            toreturn = toreturn + " " + str( position )
-        return toreturn + " )"
+            toreturn = toreturn + str( position ) + "; "
+        return toreturn + "]"
+    
+    @staticmethod
+    def from_string( string ):
+        components = string.replace("[","").replace("]","").replace(" ","").split(";")
+        state = []
+        for position in components:
+            if position is not "":
+                state.append( Position.from_string( position ) )
+        return Pattern( state )
     
