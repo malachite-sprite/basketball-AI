@@ -40,13 +40,10 @@ class Pattern:
         return True
     
     def __str__( self ):
-        return self.to_string()
-    
-    def to_string( self ):
-        toreturn = "[ "
-        for position in self.state:
-            toreturn = toreturn + str( position ) + "; "
-        return toreturn + "]"
+            toreturn = "[ "
+            for position in self.state:
+                toreturn = toreturn + str( position ) + "; "
+            return toreturn + "]"
     
     @staticmethod
     def from_string( string ):

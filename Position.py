@@ -31,9 +31,6 @@ class Position:
         return abs( compare_to.x + compare_to.y - self.x - self.y )
     
     def __str__( self ):
-        return self.to_string()
-    
-    def to_string( self ):
         return "( %i, %i, %i )" % (self.x, self.y, self.tolerance)
     
     @staticmethod
