@@ -31,5 +31,16 @@ class Position:
         return abs( compare_to.x + compare_to.y - self.x - self.y )
     
     def __str__( self ):
+        return self.to_string()
+    
+    def to_string( self ):
         return "( %i, %i, %i )" % (self.x, self.y, self.tolerance)
+    
+    @staticmethod
+    def from_string( string ):
+        components = string.replace(" ","").replace("(","").replace(")","").split(",")
+        try:
+            return Position( int( components[ 0 ] ), int( components[ 1 ] ), int( components[ 2 ] ) )
+        except:
+            return Position( int( components[ 0 ] ), int( components[ 1 ] ) )
 
